@@ -1,15 +1,16 @@
 class Solution {
     public List<Long> mergeAdjacent(int[] nums) {
-        ArrayList<Long> ans=new ArrayList<>();
-        for(int i=0;i<nums.length;i++){
-            long curr=nums[i];
-        
-        while(ans.size()>0&& ans.get(ans.size()-1)==curr){
-            ans.remove(ans.size()-1);
+       Stack<Long> st=new Stack<>();
+       st.push((long)nums[0]);
+       for(int i=1;i<nums.length;i++){
+        long curr=nums[i];
+        while(!st.isEmpty() && st.peek()==curr){   
             curr*=2;
+            st.pop();
         }
-        ans.add(curr);
-        }
-        return ans;
+           st.push(curr);
+       }
+       return new ArrayList<>(st);
+       
     }
 }
