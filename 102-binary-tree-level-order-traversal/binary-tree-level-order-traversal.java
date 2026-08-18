@@ -16,22 +16,57 @@
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
      
+        // List<List<Integer>> ans=new ArrayList<>();
+        // Queue<TreeNode> q=new LinkedList<>();
+        // if(root!=null){
+        // q.add(root);}
+        // while(!q.isEmpty()){
+        //     int size=q.size();
+        //     List<Integer> level=new ArrayList<>();
+        //     for(int i=0;i<size;i++){
+        //     TreeNode front=q.remove();
+        //     level.add(front.val);
+        //     if(front.left!=null) q.add(front.left);
+        //     if(front.right!=null) q.add(front.right);}
+        //     ans.add(level);
+        // }
+        
+        // return ans;
+
+
+
+
+
+
+
+
+
+
+
+
+
         List<List<Integer>> ans=new ArrayList<>();
         Queue<TreeNode> q=new LinkedList<>();
-        if(root!=null){
-        q.add(root);}
+        if(root!=null) q.add(root) ;
+       
         while(!q.isEmpty()){
             int size=q.size();
-            List<Integer> level=new ArrayList<>();
+            List<Integer> levels=new ArrayList<>();
+            
             for(int i=0;i<size;i++){
-            TreeNode front=q.remove();
-            level.add(front.val);
-            if(front.left!=null) q.add(front.left);
-            if(front.right!=null) q.add(front.right);}
-            ans.add(level);
+            TreeNode top=q.remove();
+            levels.add(top.val);
+            // TreeNode left=top.left;
+            // TreeNode right=top.right;
+           
+            if(top.left!=null) q.add(top.left);
+            if(top.right!=null) q.add(top.right);
+            }
+            ans.add(levels);
+            
         }
-        
         return ans;
+        
 
         
     }
